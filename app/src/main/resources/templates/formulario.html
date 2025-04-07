@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Profesores</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+    <header>
+        <nav class="navbar bg-body-tertiary">
+            <form class="container-fluid justify-content-start">
+                <a class="btn btn-outline-success me-2" href="/profesores">Ver profesores</a>
+                <a class="btn btn-sm btn-outline-secondary" href="/profesores/nuevo">Agregar nuevo</a>
+                <a class="btn btn-sm btn-outline-secondary" href="/">Inicio</a>
+            </form>
+        </nav>
+        </header>
+    
+    <h2>Formulario de Profesores</h2>
+    <form action="/profesores/guardar"  th:object="${profesor}"  method="post" style="text-align:center">
+        <label>Id:<input type="text" name="id" th:field="*{id}"required></label><br><br>
+        <label>Nombre: <input type="text" name="name" th:field="*{name}" required></label><br><br>
+        <label>Dirección: <input type="text" name="address" th:field="*{address}" required></label><br><br>
+        <label>Teléfono: <input type="text" name="phone" th:field="*{phone}" required></label><br><br>
+
+        <button type="submit">Guardar</button>
+    </form>
+    <div>
+        <a href="/profesores">Volver</a>
+    </div>
+</body>
+</html>

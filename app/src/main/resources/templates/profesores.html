@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Profesores</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar bg-body-tertiary">
+            <form class="container-fluid justify-content-start">
+                <a class="btn btn-outline-success me-2" href="/profesores">Ver profesores</a>
+                <a class="btn btn-sm btn-outline-secondary" href="/profesores/nuevo">Agregar nuevo</a>
+                <a class="btn btn-sm btn-outline-secondary" href="/">Inicio</a>
+            </form>
+        </nav>
+        </header>
+    
+
+    <h2>Lista de Profesores</h2>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Opciones</th>
+        </tr>
+        <tr th:each="profesor : ${profesores}">
+            <td th:text="${profesor.id}"></td>
+            <td th:text="${profesor.name}"></td>
+            <td th:text="${profesor.address}"></td>
+            <td th:text="${profesor.phone}"></td>
+            <td>
+                <a th:href="@{/profesores/editar/{id}(id=${profesor.id})}">Editar</a>
+                <a th:href="@{/profesores/eliminar/{id}(id=${profesor.id})}" class="delete">Eliminar</a>
+            </td>
+        </tr>
+    </table>
+    <div>
+        <a href="/profesores/nuevo">Agregar Nuevo Profesor</a>
+    </div>
+</body>
+</html>
