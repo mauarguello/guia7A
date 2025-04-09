@@ -43,6 +43,7 @@ public class ProfesorController {
         Profesor p=profesorService.consultar(id);
         model.addAttribute("profesor", p);
         profesorService.actualizar(p);
+        System.out.println("New Change");
         return "formulario";
     }
 
