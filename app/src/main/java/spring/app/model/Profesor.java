@@ -40,5 +40,7 @@ public class Profesor {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    // Allan estuvo aqui
     
 }
